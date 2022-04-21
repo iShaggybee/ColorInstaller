@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SettingsViewController.swift
 //  ColorInstaller
 //
 //  Created by Kislov Vadim on 31.03.2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SettingsViewController: UIViewController {
     @IBOutlet var currentColorView: UIView!
     
     @IBOutlet var redSlider: UISlider!
@@ -18,15 +18,17 @@ class ViewController: UIViewController {
     @IBOutlet var greenValueLabel: UILabel!
     @IBOutlet var blueValueLabel: UILabel!
     
+    var backgroundColor: UIColor!
+    
+    var delegate: WelcomeViewControllerDelegate!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         currentColorView.layer.cornerRadius = 10
-
-        redSlider.value = getRandomColorHue()
-        greenSlider.value = getRandomColorHue()
-        blueSlider.value = getRandomColorHue()
         
+        (redSlider.value, greenSlider.value, blueSlider.value) = backgroundColor.rgb
+
         setColorLabelFor(sliders: redSlider, greenSlider, blueSlider)
         
         setViewColor()
@@ -36,6 +38,12 @@ class ViewController: UIViewController {
         setViewColor()
         
         setColorLabelFor(sliders: sender)
+    }
+    
+    @IBAction func onSaveColor() {
+        delegate.setBackgroundColor(currentColorView.backgroundColor)
+        
+        dismiss(animated: true)
     }
     
     private func setViewColor() {
@@ -66,5 +74,17 @@ class ViewController: UIViewController {
     
     private func sliderValueFormatter(_ value: Float) -> String {
         String(format: "%.2f", value)
+    }
+}
+
+extension UIColor {
+    var rgb: (red: Float, green: Float, blue: Float) {
+        var red: CGFloat = 0
+        var green: CGFloat = 0
+        var blue: CGFloat = 0
+        var alpha: CGFloat = 0
+        getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+
+        return (Float(red), Float(green), Float(blue))
     }
 }
