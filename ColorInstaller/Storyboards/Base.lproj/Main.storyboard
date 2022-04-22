@@ -53,7 +53,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="2zV-aw-Vex">
                                         <rect key="frame" x="65" y="0.0" width="50" height="122"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CaB-Fc-LjQ">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CaB-Fc-LjQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
@@ -77,30 +77,53 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="0QD-2u-Lfg">
-                                        <rect key="frame" x="120" y="0.0" width="254" height="122"/>
+                                        <rect key="frame" x="120" y="0.0" width="194" height="122"/>
                                         <subviews>
                                             <slider opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="HTO-4B-mpZ">
-                                                <rect key="frame" x="-2" y="0.0" width="258" height="31"/>
+                                                <rect key="frame" x="-2" y="0.0" width="198" height="31"/>
                                                 <color key="tintColor" systemColor="systemRedColor"/>
                                                 <connections>
                                                     <action selector="onChangeSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="YtM-V7-vFM"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="vhU-4D-g2y">
-                                                <rect key="frame" x="-2" y="46" width="258" height="31"/>
+                                                <rect key="frame" x="-2" y="46" width="198" height="31"/>
                                                 <color key="tintColor" systemColor="systemGreenColor"/>
                                                 <connections>
                                                     <action selector="onChangeSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="1su-0R-5ar"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="AcW-qa-gkc">
-                                                <rect key="frame" x="-2" y="92" width="258" height="31"/>
+                                                <rect key="frame" x="-2" y="92" width="198" height="31"/>
                                                 <color key="tintColor" systemColor="systemBlueColor"/>
                                                 <connections>
                                                     <action selector="onChangeSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="PKc-gG-9Ch"/>
                                                 </connections>
                                             </slider>
                                         </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Wim-to-czf">
+                                        <rect key="frame" x="319" y="0.0" width="55" height="122"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Sn-Wz-ibH">
+                                                <rect key="frame" x="0.0" y="0.0" width="55" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Erp-9h-mTu">
+                                                <rect key="frame" x="0.0" y="44" width="55" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eye-hh-rmR">
+                                                <rect key="frame" x="0.0" y="88" width="55" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="55" id="uhV-gx-V2a"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                             </stackView>
@@ -131,11 +154,14 @@
                     </view>
                     <connections>
                         <outlet property="blueSlider" destination="AcW-qa-gkc" id="YoG-U2-L8Q"/>
+                        <outlet property="blueTextField" destination="eye-hh-rmR" id="Eqc-xS-T4q"/>
                         <outlet property="blueValueLabel" destination="ksY-uD-g9E" id="kTU-Qq-TBv"/>
                         <outlet property="currentColorView" destination="fF0-15-iXi" id="kQg-gt-PO0"/>
                         <outlet property="greenSlider" destination="vhU-4D-g2y" id="2YW-oQ-eWE"/>
+                        <outlet property="greenTextField" destination="Erp-9h-mTu" id="MPW-Ld-hmj"/>
                         <outlet property="greenValueLabel" destination="Sf1-hl-S1O" id="eQR-f3-ei1"/>
                         <outlet property="redSlider" destination="HTO-4B-mpZ" id="BpS-iD-Bb7"/>
+                        <outlet property="redTextField" destination="6Sn-Wz-ibH" id="Vhm-DC-epE"/>
                         <outlet property="redValueLabel" destination="CaB-Fc-LjQ" id="i0r-A6-F5c"/>
                     </connections>
                 </viewController>
