@@ -12,8 +12,6 @@ protocol WelcomeViewControllerDelegate {
 }
 
 class WelcomeViewController: UIViewController {
-    var backgroundColor: UIColor?
-        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,18 +23,18 @@ class WelcomeViewController: UIViewController {
             return
         }
         
-        settingsVC.backgroundColor = backgroundColor
+        settingsVC.backgroundColor = view.backgroundColor
         settingsVC.delegate = self
     }
     
     private func getRandomColorHue() -> Float {
-        return round(Float.random(in: 0...1) * 100) / 100
+        round(Float.random(in: 0...1) * 100) / 100
     }
 }
 
 extension WelcomeViewController: WelcomeViewControllerDelegate {
     func setBackgroundColor(_ color: UIColor? = nil) {
-        backgroundColor = color != nil
+        view.backgroundColor = color != nil
                         ? color
                         : UIColor(
                             red: CGFloat(getRandomColorHue()),
@@ -44,7 +42,5 @@ extension WelcomeViewController: WelcomeViewControllerDelegate {
                             blue: CGFloat(getRandomColorHue()),
                             alpha: 1
                           )
-        
-        view.backgroundColor = backgroundColor
     }
 }

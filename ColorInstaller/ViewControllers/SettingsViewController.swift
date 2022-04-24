@@ -106,8 +106,17 @@ class SettingsViewController: UIViewController {
     
     private func setKeyboardToolbar(for field: UITextField) {
         let bar = UIToolbar()
-        let leftSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(tapDone))
+        let leftSpace = UIBarButtonItem(
+                            barButtonSystemItem: .flexibleSpace,
+                            target: nil,
+                            action: nil
+                        )
+        let doneButton = UIBarButtonItem(
+                            title: "Done",
+                            style: .plain,
+                            target: self,
+                            action: #selector(tapDone)
+                         )
         
         bar.items = [leftSpace, doneButton]
         bar.sizeToFit()
